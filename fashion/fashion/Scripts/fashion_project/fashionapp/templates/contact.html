@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    {% include "navbar.html"%}
+    <div class="contact-main">
+        <div class="container">
+            <div class="row text-center p-5 ">
+                <div class="col-sm-6 contact-left ">
+                    <h1>Contact Us!</h1>
+                    <form action="contactpage" method="post">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Name" required>
+                        
+                        <input type="text" placeholder="Email" required>
+                        
+                        <input type="text" placeholder="Contact" required>
+                        <input type=" text" placeholder="Message">
+                        <button type="submit" class="contact-button">SEND MESSAGE </button>
+                    </form>
+                </div>
+                <div class="col-sm-6 contact-right p-5 d-flex align-items-center flex-column justify-content-center ">
+                    <h1>For order related queries or customer support mail us at</h1>
+                    <h3>contact@yolzar.in</h3>
+
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    {%include 'footer.html'%}
+</body>
+</html>

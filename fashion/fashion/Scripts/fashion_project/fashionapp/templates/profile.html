@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="profile-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 profile-left">
+                    {% if not is_edit %}
+                        <!-- Display user address details if the form is not being edited -->
+                        <h3 class="mb-4 ">Your Address</h3>
+                        <p><strong>First Name:</strong> {{ form.fname.value }}</p>
+                        <p><strong>Last Name:</strong> {{ form.lname.value }}</p>
+                        <p><strong>Country:</strong> {{ form.country.value }}</p>
+                        <p><strong>Address:</strong> {{ form.address.value }}</p>
+                        <p><strong>Town/City:</strong> {{ form.town_city.value }}</p>
+                        <p><strong>State:</strong> {{ form.country_state.value }}</p>
+                        <p><strong>Postcode:</strong> {{ form.postcode.value }}</p>
+                        <p><strong>Phone:</strong> {{ form.phone.value }}</p>
+                        <p><strong>Email:</strong> {{ form.email.value }}</p>
+                        
+                        <!-- Edit button -->
+                        <a href="?edit=true" class="profile-edit-button ">Edit Address</a>
+                    {% else %}
+                        <!-- Display the form when editing -->
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}  <!-- Render form fields as paragraphs -->
+                            <button type="submit">Update Address</button>
+                            <a href="{% url 'profile' %}">Cancel</a> <!-- Cancel button -->
+                        </form>
+                    {% endif %}
+                </div>
+
+                <!-- Ordered Products Section -->
+                <div class="col-sm-6 ">
+                    <h3 class="mb-4">Your Orders</h3>
+                    {% if ordered_products %}
+                        <ul>
+                            {% for item in ordered_products %}
+                                <li class="mb-3  border-bottom pb-3">
+                                    <strong>Product:</strong> {{ item.product.p_name }}<br>
+                                    <strong>Quantity:</strong> {{ item.quantity }}<br>
+                                    <strong>Order Date:</strong> {{ item.order.order_date |date:"d M Y" }}<br>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No orders placed yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'footer.html' %}
+</body>
+</html>

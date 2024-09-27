@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Login</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    
+    <div class="login-main w-100 h-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 login-right">
+                    <div class="loginpage text-center">
+                        <h1>WELCOME TO</h1>
+                        <img src="{% static 'images/logo1.png' %}" alt="">
+                        <h3>LOGIN</h3>
+                        <form method="post" action="{% url 'login' %}" class="loginform">
+                            {% csrf_token %}
+                            <input type="text" name="username" placeholder="Username" required>
+                            <br>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <a href="{% url 'password_reset'%}"><p>FORGET PASSWORD?</p></a>
+                            
+                            <button type="submit" class="login-button">LOGIN</button>
+                        </form>
+                        <div class="signup mt-4">
+                            <h5>Or log in with</h5>
+                            <button class="signup-btn mb-3"><i class="ri-google-fill m-2"></i> login with Google</button>
+                            <p>Don't have an account? <a href="{% url 'register' %}"><b>SIGN UP NOW</b></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

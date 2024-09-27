@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+</head>
+<body>
+    {% include "navbar.html"%}
+    <div class="shop-main">
+        <div class="container">
+            <div class="row">
+                <div class="shop-category-main">
+                    <div class="shop-category-left">
+                        <ul>
+                            <li><a href="{% url 'shop' %}">ALL PRODUCTS</a></li>
+                            {% for category in categories %}
+                                <li><a href="{% url 'filter' category.id %}">{{ category.category_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="shop-category-right d-flex gap-5">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Filter <i class="ri-filter-3-line"></i>    
+                            </button>
+                            <ul class="dropdown-menu">
+                            <div class="filter-main d-flex gap-5 p-5">
+                                <div class="filter-price dropdown-item">
+                                    <h4>Price</h4>
+                                    <ul>
+                                        {% if selected_category %}
+                                            <li><a href="{% url 'filter' selected_category %}?price_range=100_500">₹100 - ₹500</a></li>
+                                            <li><a href="{% url 'filter' selected_category %}?price_range=500_1000">₹500 - ₹1000</a></li>
+                                            <li><a href="{% url 'filter' selected_category %}?price_range=1000_15000">₹1000 - ₹15000</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'shop' %}?price_range=100_500">₹100 - ₹500</a></li>
+                                            <li><a href="{% url 'shop' %}?price_range=500_1000">₹500 - ₹1000</a></li>
+                                            <li><a href="{% url 'shop' %}?price_range=1000_15000">₹1000 - ₹15000</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="filter-color dropdown-item">
+                                    <!-- <h4>color</h4>
+                                    <li>white</li>
+                                    <li>black</li>
+                                    <li>red</li>
+                                    <li>blue</li> -->
+                                </div>
+                            </div>
+                            
+                            </ul>
+                          </div>
+                          <div class="shop-search">
+                            <form class="d-flex" role="search" method="get" action="{% url 'shop' %}">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_query" value="{% if search_query %}{{ search_query }}{% endif %}">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-products">
+                    <div class="container">
+                        <div class="row  mt-5">
+                          
+                            {% for i in products%}
+                            <div class="col-sm-3 p-4 ">
+                                <a href="{% url 'shoppage' i.id%}">
+                                <div class="shop-img w-100 h-70 mb-4">
+                                <img src="{{i.p_img1.url}}" alt="" class=" h-100 w-100">
+                               </div>
+                               <div class="productdetails">
+                                <h5>{{i.p_name}}</h5></a>
+                                <!-- <p>{{i.p_description}}</p> -->
+                                <h6>₹ {{i.p_price}}</h6>
+                               </div>
+                               {% if user.is_authenticated %}
+                               <div class="addtocart d-flex gap-3">
+                                <div class="wishlist"><a href="{% url 'addtowishlist' i.id %}"><i class="ri-heart-fill"></i></a></div>
+                                <div class="addcart "><a href="{% url 'addtocart' i.id  %}"><button>addtocart</button></a></div>
+                               </div>
+                            </div>
+                            {% else %}
+                            <div class="addtocart d-flex gap-3">
+                                <div class="wishlist"><a href="{% url 'cart'  %}"><i class="ri-heart-fill"></i></a></div>
+                                <div class="addcart "><a href="{% url 'cart' %}"><button>addtocart</button></a></div>
+                               </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                           
+                            
+                            <!-- <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div>
+                             <div class="col-sm-3 p-4 ">
+                                <div class="shop-img w-100 h-50 mb-4">
+                                 <img src="{% static 'images/men shirt.jpg  '%}" alt="" class="img-fluid h-100 w-100">
+                                </div>
+                                <div class="productdetails">
+                                 <h5>title</h5>
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dolor sed aliquid error nam facilis obcaecati enim optio, porro quas soluta doloribus ex quod. Quae sit eos consequuntur quo odit!</p>
+                                 <h6>price</h6>
+                                </div>
+                                <div class="addtocart">
+                                 <button>addtocart</button>
+                                </div>
+                             </div> -->
+                          
+
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html'%}
+    
+</body>
+</html>

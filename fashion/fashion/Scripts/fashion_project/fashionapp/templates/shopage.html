@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include "navbar.html"%}
+    <div class="shoppage-main mt-5">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                {% for i in pl%}
+                   <div class="shppage-product-main d-flex align-items-center justify-content-center">
+                        <div class="row">
+                            <div class="col-sm-6 d-flex  justify-content-center">
+                              <div class="shoppage-image ">
+                                <div id="carouselExampleIndicators" class="carousel slide">
+                                    <div class="carousel-indicators">
+                                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    </div>
+                                    <div class="carousel-inner ">
+                                      <div class="carousel-item active shoppage-item ">
+                                        <img src="{{i.p_img1.url}}" class="d-block w-100  " alt="...">
+                                      </div>
+                                      <div class="carousel-item shoppage-item ">
+                                        <img src="{{i.p_img2.url}}" class="d-block w-100" alt="...">
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="{{i.p_img3.url}}" class="d-block w-100" alt="...">
+                                      </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="shoppage-product-content p-5">
+                                    <h4>{{i.p_name}}</h4>
+                                    <p>{{i.p_description}}</p>
+                                    <h5>₹ {{i.p_price}}</h5>
+                                    <div class="shoppage-addtocart d-flex flex-column align-items-center justify-content-center mt-5">
+                                      <a href="{% url 'addtowishlist' i.id %}"><button class="shoppage-wishlist">add to wishlist</button></a>
+                                      <a href="{% url 'addtocart' i.id  %}"><button  class="shoppage-cart m-3">add to cart</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+    {% include "footer.html"%}
+    
+</body>
+</html>

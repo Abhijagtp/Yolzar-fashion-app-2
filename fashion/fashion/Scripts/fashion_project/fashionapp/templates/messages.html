@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if messages %}
+    <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; min-height: 200px; z-index: 9999;">
+        {% for message in messages %}
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+          var toastList = toastElList.map(function (toastEl) {
+              return new bootstrap.Toast(toastEl, {
+                  autohide: true,
+                  delay: 3000  // Adjust the delay as needed
+              }).show();
+          });
+      });
+  </script>
+
+</body>
+</html>

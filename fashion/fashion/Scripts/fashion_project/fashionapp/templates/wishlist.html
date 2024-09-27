@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {% load static%}
+    <title>Document</title>
+</head>
+<body>
+    {%include "navbar.html"%}
+    {% if user.is_authenticated %}
+    <div class="cart-main">
+        <div class="container">
+            <div class="row">
+                <h1 class="mb-5 text-center mt-4">YOUR FAV's</h1>
+                <div class="col-sm-12 mb-5"> 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PRODUCT</th>
+                                <th >QUANTITY</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for i in wishlist_items%}
+                            <tr>
+                                
+                                    <td class="product-cart-item d-sm-flex gap-4 mt-5 ">
+                                        <div class="product-cart-item-pic mb-2">
+                                            <img src="{{i.Product.p_img1.url}}" alt="" class="">
+                                        </div>
+                                        <div class="product-cart-item-text d-flex justify-content-center align-items-start flex-column">
+                                            <h6>{{i.Product.p_name}}</h6>
+                                            <h5>₹ {{i.Product.p_price}}</h5>
+                                            <h5>{{i.Product.p_description}}</h5>
+                                        </div>
+                                    </td>
+                                </td>
+                                <td >
+                                    <div class="qty d-flex">
+                                        <input type="number" value="1" class="w-50 w-sm-100">
+                                    </div>
+                                   
+                                </td>
+                               
+                                <td class="cart-del-btn"><a href="{% url 'delete_item_wishlist' i.id %}"><i class="ri-delete-bin-line"></i></a></td>
+                               
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="col-sm-4">
+                    <div class="cart-discount">
+                        <h2 class="mb-4"> DISCOUNT CODE</h2>
+                        <div class="cart-discount-input bg-black">
+                            <input type="text" placeholder="Enter code to apply " class=" cart-input1">
+                            <input type="submit" value="APPLY" class=" cart-input2">
+                        </div>
+                    </div>
+                    <div class="cart-total mt-5 p-5">
+                        <h6>Cart total</h6>
+                            <ul>
+                                <li class="d-flex justify-content-between"><h6>Subtotal</h6> <span>$ 169.50</span></li>
+                                <li class="d-flex justify-content-between  "><h6>Total</h6> <span>$ 169.50</span></li>
+                            </ul>
+                            <a href="#" class="primary-btn cart-button"><button>Proceed to checkout</button></a>
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- if not user -->
+     {% else %}
+     <div class="cart-main">
+        <div class="container">
+            <div class="row position-relative">
+                <h3 class="text-center mt-5">OOPS! SEEMS YOU HAVE NOT LOGGED IN</h3>
+                <div class="col-sm-12 mt-5">
+                    <div class="oops-img w-100 h-100 ">
+                        <img src="{% static 'images/oops-img.png'%}" alt="">
+                    </div>
+                    <div class="oops-btn ">
+                        <a href="{% url 'login'%}"><button class="p-3">log in here !</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     {% endif %}
+    {%include "footer.html"%}
+    
+</body>
+</html>

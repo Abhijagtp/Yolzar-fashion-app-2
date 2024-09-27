@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Shopping Cart</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% if user.is_authenticated %}
+    <div class="cart-main">
+        <div class="container">
+            <div class="row">
+                <h1 class="mb-5 text-center mt-4">SHOPPING CART</h1>
+                <div class="col-sm-8 mb-5"> 
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>PRODUCT</th>
+                                <th>QUANTITY</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                                <td class="product-cart-item d-sm-flex gap-4 mt-5">
+                                    <div class="product-cart-item-pic mb-2">
+                                        <img src="{{ item.Product.p_img1.url }}" alt="" class="">
+                                    </div>
+                                    <div class="product-cart-item-text d-flex justify-content-center align-items-start flex-column">
+                                        <h6>{{ item.Product.p_name }}</h6>
+                                        <h5>₹ {{ item.Product.p_price }}</h5>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="qty d-flex">
+                                        <input type="number" value="{{ item.quantity }}" class="w-50 w-sm-100" name="quantity" min="1" onchange="updateSubtotal(this)">
+                                    </div>
+                                </td>
+                                <td><span class="subtotal">₹ {{ item.subtotal }}</span></td>
+                                <td class="cart-del-btn"><a href="{% url 'delete_item_cart' item.id %}"><i class="ri-delete-bin-line"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <div class="cart-total mt-5 p-5">
+                        <h6>Cart total</h6>
+                        <ul>
+                            <li class="d-flex justify-content-between"><h6>Total</h6> <span id="cart-total">₹ 0.00</span></li>
+                        </ul>
+                        <a href="{% url 'checkout' %}" class="primary-btn cart-button"><button>Proceed to checkout</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="cart-main">
+        <div class="container">
+            <div class="row position-relative">
+                <h3 class="text-center mt-5">OOPS! SEEMS YOU HAVE NOT LOGGED IN</h3>
+                <div class="col-sm-12 mt-5">
+                    <div class="oops-img w-100 h-100">
+                        <img src="{% static 'images/oops-img.png' %}" alt="">
+                    </div>
+                    <div class="oops-btn">
+                        <a href="{% url 'login' %}"><button class="p-3">Log in here!</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% include "footer.html" %}
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

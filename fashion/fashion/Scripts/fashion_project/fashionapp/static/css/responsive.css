@@ -1,0 +1,166 @@
+@media (max-width:570px) {
+    .h-content {
+        /* background-color: red; */
+        width: 40%;
+        /* background-color: red; */
+        position: absolute;
+        top: 40%;
+        right: 3%; /* Adjust the right position as needed */
+        transform: translateY(-50%);
+        color: white;
+        padding:1rem;
+        /* background-color: rgba(0, 0, 0, 0.5); Optional: Add background color for better visibility */
+        text-align: right;
+      }
+      .h-content p{
+        /* font-weight: 700;s */
+        font-size: 0.5rem;
+    }
+    .h-content h2{
+        /* font-weight: 700;s */
+        font-size: 0.5rem;
+    }
+    .h-content button{
+        width: 90%;
+
+
+    }
+
+    /* main2 styles */
+    .him-button, .her-button {
+        position: absolute;
+        top: 50%; /* Position vertically in the middle of the image */
+        transform: translateY(-50%);
+        padding: 0.3rem;
+        background-color: #394352; 
+        border: none;
+        cursor: pointer;
+        font-size:0.7rem;
+        color: white; 
+        z-index: 999;
+      }
+       
+  .him-button {
+    background-color:#394352;
+    left: 4%; /* Adjust the left position as needed */
+  }
+  
+  .her-button {
+    background-color:#6B5765;
+    right: 4%; /* Adjust the right position as needed */
+  }
+  /* product sec */
+  .p-right .row{
+    /* background-color: red; */
+    padding-left: 0rem;
+  }
+  .p-right-content{
+    margin-left: 0rem;
+}
+.p-left{
+  padding-top: 0rem;
+  margin-bottom: 5rem;
+}
+.c-left{
+  /* background-image: url(../images/reviewbg.png); */
+  margin-bottom: 5rem;
+  text-align: center;
+  
+  
+}
+.faq-main{
+  margin-top: 15rem;
+}
+.f-ql{
+  padding-top: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.216);
+}
+.f-account{
+  padding-top: 2rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.216);
+
+
+}
+.f-contact{
+  padding-top: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.216);
+}
+.shop-category-main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+}
+.shop-category-left ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+
+}
+.shop-category-left  li a{
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /* background-color: red; */
+  border-radius: 2rem;
+  text-decoration: none;
+  color: #2F3943;
+}
+.shop-category-left  li a:hover{
+  background-color: #394352c0;
+  color: white;
+}
+.loginform input{
+  width: 90%;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+}
+
+.loginpage button{
+  width: 90%;
+  height: 2.5rem;
+  border: 1px solid gray;
+  border-radius: 2rem;
+}
+
+/* cart  */
+
+table td{
+  
+  padding: 0rem;
+}
+
+table th{
+  padding-left: 0rem;
+}
+.product-cart-item-pic{
+  background-color: red;
+  width: 50px;
+  height: 50px;
+
+}
+.product-cart-item-pic img{
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+/* shoppage */
+.shoppage-cart{
+  padding: 0.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color:#3FA24F;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  text-transform: capitalize;
+  color: white;
+
+}
+}

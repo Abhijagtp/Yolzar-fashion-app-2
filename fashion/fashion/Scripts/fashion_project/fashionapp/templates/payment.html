@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Payment</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="payment-main">
+        <div class="container">
+            <div class="row">
+                <div class="payment d-flex align-items-center justify-content-center mt-5">
+                    <div class="payment-wrap d-flex align-items-center justify-content-center flex-column p-5">
+                        <h2>We would love to serve you more...</h2>
+                        <a href="{% url 'paymentdone' %}"><button class="payment-cod">CASH ON DELIVERY</button></a>
+                        <form method="POST" action="{% url 'paypal_payment' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="amount" value="{{ request.session.total_amount }}">
+                            <button type="submit" class="payment-online">PAY ONLINE WITH PAYPAL</button>
+                        </form>
+                        <p>We would soon be accepting orders through cards <i class="ri-user-smile-line"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

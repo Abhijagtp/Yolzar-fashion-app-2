@@ -1,0 +1,681 @@
+/* font import */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: "Nunito Sans", sans-serif;
+    
+}
+*{ 
+ margin:0;
+padding:0;
+box-sizing: border-box;
+}
+html,body{
+    background-color:#f7f7f7;
+width: 100%;
+height: 100%;
+}
+
+/* navbar */
+.nav-middle a {
+    text-decoration: none;
+    color: #2F3943;
+}
+
+nav{
+    width: 100%;
+    /* color: red; */
+    padding: 1.5rem;
+    background-color:white;
+   
+    
+
+}
+.nav-logo {
+    width: 10%;
+
+}
+
+.nav-logo img {
+    background-image: url();
+}
+
+.nav-middle h2 {
+    font-size: 1.3rem;
+
+}
+
+.nav-right h2 {
+    font-size: 1.5rem;
+}
+
+.nav-right i {
+    font-size: 1.5rem;
+}
+
+.m-logo{
+    font-size: 5rem;
+}
+
+/* home page  --------------------------------=======================================================================*/ 
+
+
+.carousel-item{
+    position: relative;
+}
+.h-content {
+    position: absolute;
+    top: 40%;
+    right: 3%; /* Adjust the right position as needed */
+    transform: translateY(-50%);
+    color: white;
+    padding:1rem;
+    /* background-color: rgba(0, 0, 0, 0.5); Optional: Add background color for better visibility */
+    text-align: right;
+  }
+
+.h-content p {
+    font-weight: 700;
+    font-size: 1.5rem;
+    /* line-height: 2rem; */
+    
+}
+.h-content h2{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.h-content button{
+    background-color: #444B4F;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.h-content button:hover{
+    
+    color:#444B4F;
+
+}
+
+.main2{
+    position: relative;
+}
+  
+  .image-container img {
+    background-size: cover;
+  }
+  
+  .him-button, .her-button {
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%; /* Position vertically in the middle of the image */
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    /* Optional: Semi-transparent background */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color:white; 
+    border-radius: .5rem;
+    z-index: 999;
+  }
+  
+  .him-button {
+    background-color:#394352;
+    left: 10%; /* Adjust the left position as needed */
+  }
+  
+  .her-button {
+    background-color:#6B5765;
+    right: 10%; /* Adjust the right position as needed */
+  }
+
+  /* product sect -================================================================================================================ */
+ 
+.p-right-content{
+    margin-left: 6rem;
+}
+.p-left{
+    padding-top: 8rem;
+}
+.p-button{
+    margin-top: 2rem;
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #929AAB;
+    color: black;
+    border: 1px solid gray;
+    text-transform: uppercase;
+}
+.p-button:hover{
+    background-color: white;
+    
+}
+
+
+.c-row {
+    /* background-color: #394352; */
+    /* background-image: url(../images/reviewbg.png); */
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem;
+   
+
+}
+.c-img{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    overflow: hidden;
+    
+    
+}
+.c-review{
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
+.c-img img{
+    background-size: contain;
+    
+}
+.c-left{
+    background-image: url(../images/reviewbg.png);
+    text-align: center  ;
+}
+.c-button{
+    margin-top: 2rem;
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #929AAB;
+    color: black;
+    border: 1px solid gray;
+    text-transform: uppercase;
+}
+.c-button:hover{
+    background-color: white;
+}
+.sub-button{
+   
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #929AAB;
+    color: black;
+    border: 1px solid gray;
+    text-transform: uppercase;
+}
+.sub-button:hover{
+    background-color: white;
+}
+.faq-row h1{
+    margin-bottom: 4rem;
+}
+
+.sus-main{
+    margin-top: 5rem;
+   
+}
+.sus-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.sus-right{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: center;
+    /* background-color: red; */
+    padding: 5rem;
+
+
+}
+.sus-right input{
+    width: 60%;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    margin-left: 1.5rem;
+}
+
+.about img{
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+.f-ql ul li{
+    /* list-style-type: none; */
+    list-style: none;
+    margin-bottom: 0.5rem;
+   
+}
+
+.f-account ul li {
+    list-style: none;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+
+}
+.f-contact ul li{
+    list-style: none;
+    /* text-transform: uppercase;    */
+    margin-bottom: 0.5rem;
+
+
+}
+.sociallink{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    
+
+}
+.sociallink i:hover{
+    color: #536472;
+}
+
+footer{
+    background-color: #393E46;
+    color: white;
+    padding-top: 5rem;
+}
+
+/* SHOP STYLES ======================================================-----------------==========================================*/
+.shop-main{
+    margin-top: 2rem;
+}
+.shop-category-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shop-category-left ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+
+}
+.shop-category-left ul li{
+   list-style: none;
+}
+.addtocart{
+    margin-top: 0.5rem;
+    /* background-color: rebeccapurple; */
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.addcart{
+    background-color:red;
+    width: 90%;
+    border-left: 1px solid green;
+
+
+}
+.addcart button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color:#3FA24F;
+    text-transform: uppercase;
+}
+.wishlist{
+    width: 10%;
+    padding-left: 0.5rem;
+   
+}
+.wishlist i{
+    font-size: 1.7rem;
+    color: black;
+    overflow: hidden;
+    
+    
+}
+.wishlist i:hover{
+    color: red;
+}
+.wishlist a{
+    text-decoration: none;
+}
+
+.shop-category-left  li a{
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* background-color: red; */
+    border-radius: 2rem;
+    text-decoration: none;
+    color: #2F3943;
+}
+.shop-category-left  li a:hover{
+    background-color: #394352c0;
+    color: white;
+}
+.productdetails a{
+    text-decoration: none;
+    color: #2F3943;
+}
+
+/* login styles =-------------------------------------======================================================================*/
+
+.nav-right a{
+    text-decoration: none;
+    color: #2F3943;
+}
+.login-main{
+    background-image: url(../images/login\ bg-lp.jpg);
+    /* background-position: center; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.login-right{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    
+}
+.loginpage img{
+    width: 40%;
+    margin-bottom: 2rem;
+}
+.loginpage{
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.411);
+    border-radius: 1rem;
+}
+.loginform input{
+    width: 60%;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+}
+
+.loginpage button{
+    width: 60%;
+    height: 2.5rem;
+    border: 1px solid gray;
+    border-radius: 2rem;
+    
+}
+.login-button{
+    /* background-color: #0FC9E7; */
+}
+
+.filter-drop{
+    display: flex;
+}
+
+/* cart list =============================================================================================================== */
+.product-cart-item{
+    padding: 0.3rem;
+   
+}
+.product-cart-item-pic{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+
+}
+.product-cart-item-pic img{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.cart-table td{
+    /* display: flex; */
+    padding: 2rem;
+}
+
+.cart-table th{
+    padding-left: 2rem;
+}
+.cart-del-btn i{
+    font-size: 2rem;
+}
+.cart-discount-input{
+    width: 90%;
+    height: 6vh;
+    display: flex;
+    margin-bottom: 6rem;
+    
+}
+.cart-discount-input input{
+    height: 100%;
+}
+.cart-input1{
+    width: 60%;
+    padding: 0.5rem;
+}
+.cart-input2{
+    background-color: #2F3943;
+    color: white;
+    /* border: 1px solid gray; */
+    width: 40%;
+}
+.cart-total{
+    text-transform: uppercase;
+    background-color: #686b6ebc;
+}
+
+
+.cart-button button{
+    background-color: #2F3943;
+    color: white;
+    border: 1px solid gray;
+    margin-top: 1rem;
+    width: 100%;
+    height: 50px;
+}
+
+.oops-img img{
+    background-size: cover;
+    width: 100%;
+    /* height: 100%; */
+}
+.oops-img{
+    overflow:hidden;
+}
+.oops-btn{
+    position: absolute;
+    top: 30%;
+    left: 55%;
+}
+.oops-btn button{
+    width: 300px;
+    background-color: #2F3943;
+    color: white;
+    text-transform: uppercase;
+    border: 1px solid gray;
+    border-radius: 1rem;
+}
+.oops-btn button:hover{
+    background-color: white;
+    color: #2F3943;
+}
+
+/* contact page styles ================================================================================================ */
+
+.contact-left input{
+    margin: 1rem;
+   padding: 1rem;
+}
+.contact-left form{
+    display: flex;
+    
+    flex-direction: column;
+
+}
+.contact-left h1{
+    margin-bottom: 2rem;
+}
+.contact-left input:nth-child(5){
+    padding: 2rem;
+}
+.contact-button{
+    margin: 1.5rem;
+    width: 90%;
+   padding: 0.7rem;
+   border: 1px solid gray;
+   background-color: #444B4F;
+   color: white;
+   border-radius: 0.3rem;
+}
+
+/* checkout styles--=========================================================================================================== */
+
+.checkout__input input {
+   width:20vw;
+   height: 6vh;
+   margin-bottom: 1rem;
+}
+
+.checkout-table td{
+    padding-left: 0rem;
+}
+.checkout-table th{
+    padding-left: 0rem;
+    /* margin-left: 1rem; */
+    gap: 1rem;
+}
+
+.checkout-right table tr{
+   display: flex;
+   /* align-items: center ; */
+   justify-content: space-between ;
+   gap: 8rem;
+   /* background-color: #2F3943; */
+}
+.checkout-total {
+    padding-left: 0rem;
+}
+.checkout-order-button{
+    padding: 0.5rem;
+    padding-left:4rem;
+    padding-right: 4rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #394352;
+    color: white;
+
+}
+
+.checkout-right {
+    padding-top: 6rem;
+}
+.orderplace{
+    background-color: #53647262;
+    padding: 2rem;
+}
+
+/* PAyment =================================================================================================================== */
+.payment-wrap{
+    background-color:#53647262 ;
+}
+.payment-cod{
+    padding: 0.5rem;
+    padding-left:4rem;
+    padding-right: 4rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #394352;
+    color: white;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+}
+.payment-online{
+    padding: 0.5rem;
+    padding-left:4rem;
+    padding-right: 4rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #394352;
+    color: white;
+    margin-bottom: 2rem;
+
+}
+/* final page ================================================ */
+.orderwrap i{
+    font-size: 5rem;
+}
+/* shoppage styles ========================================================================== */
+
+.shoppage-wishlist{
+    padding: 0.5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    text-transform: capitalize;
+    background-color:#BF4547;
+    color: white;
+
+}
+
+.shoppage-cart{
+    padding: 0.5rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    background-color:#3FA24F;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    text-transform: capitalize;
+    color: white;
+
+}
+
+.shoppage-image{
+    width: 50%;
+    height: 50%;
+    
+}
+
+/* profile ============================================================= */
+.profile-left strong{
+    border-bottom: 1px solid gray;
+    margin-right: 0.5rem;
+    text-transform: capitalize;
+}
+
+.profile-left  p:nth-child(10){
+    text-transform: lowercase;
+    /* background-color: red; */
+    margin-bottom: 2rem;
+
+}
+
+.profile-left  p{
+    text-transform: capitalize;
+}
+
+.profile-edit-button{
+    padding: 0.5rem;
+    border: 1px solid gray;
+    
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    background-color: #393E46;
+    color: white;
+    /* margin-bottom: 3rem; */
+}
