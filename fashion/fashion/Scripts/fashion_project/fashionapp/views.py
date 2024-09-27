@@ -14,7 +14,7 @@ from django.core.mail import send_mail
 # Create your views here.
 
 def home(request):
-    return render(request,"home.html")
+    return render(request,"index.html")
 
 # # shop view
 
